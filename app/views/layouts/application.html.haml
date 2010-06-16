@@ -1,6 +1,6 @@
 !!!
 %html
   = stylesheet_link_tag 'application'
-  = javascript_include_tag 'application'
+  = javascript_include_tag application_javascript_path_with_timestamp
   = csrf_meta_tag
-%body= yield
+%body{:action => params[:action]}= yield

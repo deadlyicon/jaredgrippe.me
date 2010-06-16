@@ -1,2 +1,17 @@
 body
   background: #005AFF url(http://farm3.static.flickr.com/2679/4092099566_523d45c1d6_o.gif) no-repeat fixed 50% 50%
+  
+  
+  &[action="not_found"]
+    overflow: hidden
+    > .content
+      position: absolute
+      top: 50%
+      left: 0
+      right: 0
+      text-align: center
+      color: white
+
+      > *
+        position: relative
+        top: -250px
