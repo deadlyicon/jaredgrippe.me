@@ -3,4 +3,4 @@
   = stylesheet_link_tag 'application'
   = javascript_include_tag application_javascript_path_with_timestamp
   = csrf_meta_tag
-%body{:action => params[:action]}= yield
+%body{:controller => params[:controller], :action => params[:action]}= yield

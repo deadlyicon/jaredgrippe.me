@@ -1,17 +1,66 @@
-body
-  background: #005AFF url(http://farm3.static.flickr.com/2679/4092099566_523d45c1d6_o.gif) no-repeat fixed 50% 50%
-  
-  
-  &[action="not_found"]
-    overflow: hidden
-    > .content
-      position: absolute
-      top: 50%
-      left: 0
-      right: 0
-      text-align: center
-      color: white
+@import reset
+@import mixins
 
-      > *
+html
+  height: 100%
+  background: #005AFF url(http://farm3.static.flickr.com/2679/4092099566_523d45c1d6_o.gif) no-repeat fixed 50% 50%
+  color: white
+  font:
+    family: helvetica, arial
+    size: 20px
+    weight: 100
+
+  h1
+    font-size: 200%
+
+  a, a:hover, a:visited
+    color: white
+    text-decoration: none
+    outline: none
+
+  body
+    margin: 0 auto
+    min-height: 100%
+    max-width: 1680px
+
+    &[controller="profile"][action="index"]
+      position: relative
+      text-shadow: 2px 2px 2px black
+      text-align: center
+
+      > h1
         position: relative
-        top: -250px
+        padding: 1em 0
+
+      > .links
+        > .link
+          margin-bottom: 1em
+          > a
+            +opacity(90)
+            &:hover
+              +opacity(100)
+
+      > .megaphoning
+        z-index: -1
+        position: fixed
+        bottom: 0
+        right: 10px
+        width: 351px
+        height: 299px
+        background: url('/images/megaphoning.png') no-repeat scroll top left
+
+    &[action="not_found"]
+      overflow: hidden
+      > .content
+        position: absolute
+        top: 50%
+        left: 0
+        right: 0
+        text-align: center
+
+        > h1
+          margin-bottom: 1em
+
+        > *
+          position: relative
+          top: -250px

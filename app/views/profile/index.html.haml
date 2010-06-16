@@ -1,1 +1,9 @@
-%h1 Jared Grippe's Profile
+%h1 Jared Grippe
+
+%ul.links
+  - @links.each do |name, url|
+    %li.link
+      %a{:href => url}= name
+
+
+.megaphoning
