@@ -1,5 +1,7 @@
 !!!
 %html
+  %link{:href => "http://www.myopenid.com/server", :rel => "openid.server"}
+  %link{:href => "http://deadlyicon.myopenid.com/", :rel => "openid.delegate"}
   %link{:href => "/foaf.rdf", :rel => "meta", :title => "FOAF", :type => "application/rdf+xml"}
   = stylesheet_link_tag 'application'
   = javascript_include_tag application_javascript_path_with_timestamp
