@@ -1,3 +1,5 @@
+@import "compass/css3"
+
 body,html
   height: 100%
   width: 100%
@@ -10,7 +12,36 @@ body,html
   overflow: hidden
   top: 0
   left: 0
-  background: image-url("blue-god-rays.gif") center center
+  display: table
+  // background: image-url("blue-god-rays.gif") center center
+  background: blue
+  .god-rays
+    display: table-cell
+    vertical-align: middle
+  .god-ray
+    $height: 70px
+    $width: 1000px
+    position: absolute
+    // top: 50%
+    // left: 0
+    // right: 0
+    height: $height
+    width: 100%
+
+    div
+      position: absolute
+      top: $height * -0.5
+      right: 50%
+      bottom: 0
+      height: 0
+      width: 0
+      border-width: $height 0 $height $width
+      border-color: transparent transparent transparent darkblue
+      border-style: solid
+    @for $i from 1 through 24
+      &.n-#{$i}
+        +rotate(#{(360 / 24) * $i}deg)
+
 
 #content
   margin: 0 auto
