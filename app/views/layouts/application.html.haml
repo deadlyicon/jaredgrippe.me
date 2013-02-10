@@ -11,9 +11,14 @@
 
   %body{class: body_class}
     #background
+
       .god-rays
-        - 24.times do |i|
-          .god-ray{class: "n-#{i+1}"}
-            %div
+        .stage
+          - 24.times do |i|
+            .god-ray{class: "n-#{i+1}"}
+              %div
+
+      .mask
+
     #content
       = yield
