@@ -12,4 +12,46 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require s
+//= require jquery-s
 //= require_tree .
+
+!function(){
+
+  var
+    root = S('.slides'),
+    slide = root('> .slide'),
+    back_slide = slide('&.back'),
+    middle_slide = slide('&.middle'),
+    front_slide = slide('&.front');
+
+  slides = {
+    first: function(){
+      return slide('&:first').get();
+    },
+    prev: function(){
+      return this.current().prev();
+    },
+    current: function(){
+      return middle_slide.get();
+    },
+    next: function(){
+      return this.current().next();
+    },
+    forward: function(){
+      var current = this.current(), next = this.next();
+      if (next.length === 0) next = this.first();
+
+      next.addClass('back').css({display:'table'});
+      setTimeout(function(){
+        next.addClass('middle');
+        current.removeClass('middle').addClass('front');
+      });
+    }
+
+  }
+  // slide = $('.slide:first').addClass('selected');
+  // slide = slide.removeClass('center').addClass('forward').next().addClass('center');
+
+
+}();

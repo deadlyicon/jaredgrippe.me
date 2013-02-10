@@ -1,0 +1,88 @@
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+=position( $position, $top: nil, $right: nil, $bottom: nil, $left: nil )
+  position: $position
+  @if $top != nil
+    top: $top
+  @if $right != nil
+    right: $right
+  @if $bottom != nil
+    bottom: $bottom
+  @if $left != nil
+    left: $left
+
+=fill-container( $position: absolute, $top: 0, $right: 0, $bottom: 0, $left: 0 )
+  +position($position, $top, $right, $bottom, $left)
+  height: 100%
+  width: 100%
+
+// =size( !height, !width: !height )
+//   height= !height
+//   width= !width
+
+// =min-size( !min_height, !min_width: !min_height )
+//   min-height= !min_height
+//   min-width= !min_width
+
+// =max-size( !max_height, !max_width: !max_height )
+//   max-height= !max_height
+//   max-width= !max_width
+
+// =clearfix
+//   &:after
+//     content: "."
+//     display: block
+//     clear: both
+//     visibility: hidden
+//     line-height: 0
+//     height: 0
+
+// =redbox
+//   background-color: red
+//   height: 10px
+//   width: 10px
+
+// =user-select( !user_select )
+//   -moz-user-select= !user_select
+//   -khtml-user-select= !user_select
+//   -webkit-user-select= !user_select
+//   user-select= !user_select
+
+// =no-select
+//   +user-select("none")
+
+// =border-radius( !argv1="", !argv2="", !argv3="", !argv4="" )
+//   border-radius= !argv1 !argv2 !argv3 !argv4
+//   -webkit-border-radius= !argv1 !argv2 !argv3 !argv4
+//   -moz-border-radius= !argv1 !argv2 !argv3 !argv4
+
+// =background-gradient( !from_color="", !to_color="", !direction="top" )
+//   background-image: -moz-linear-gradient(#{!direction}, #{!from_color}, #{!to_color})
+//   background-image: -webkit-gradient( linear, left top, left bottom, from(#{!from_color}), to(#{!to_color}))
+
+// // 10% opacity: +opacity(10)
+// =opacity( !pct )
+//   opacity= !pct/100
+//   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{!pct})"
+//   filter: alpha(opacity='#{!pct}')
+
+// =box-shadow( !argv1="", !argv2="", !argv3="", !argv4="", !argv5="", !argv6="" )
+//   box-shadow= !argv1 !argv2 !argv3 !argv4 !argv5 !argv6
+//   -webkit-box-shadow= !argv1 !argv2 !argv3 !argv4 !argv5 !argv6
+//   -moz-box-shadow= !argv1 !argv2 !argv3 !argv4 !argv5 !argv6
+
+// =transform( !argv1="" )
+//   -webkit-transform= !argv1
+//   -moz-transform= !argv1
+
+
+// =rotate( !degree="90")
+//   +transform("rotate(#{!degree}deg)")
