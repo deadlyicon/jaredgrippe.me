@@ -73,24 +73,29 @@ $.fn.scale = function(size){
   Slides.redraw = function(){
     var
       scroll_percentage = Slides.scroll_percentage,
-      range_size = 100 / Slides.all.length;
+      range_size = 100 / Slides.all.length,
+      fade_range_size = (range_size * 0.25);
 
     Slides.all.each(function(index){
       var
-        slide = $(this),
-        from  = range_size * index,
-        to    = from + range_size;
+        slide     = $(this),
+        from      = range_size * index,
+        to        = from + range_size,
+        fade_from = from + (range_size - fade_range_size);
 
-      if (scroll_percentage < from || scroll_percentage > to){
-        slide.hide();
-        return;
-      }else{
-      // if (scroll_percentage >= from && scroll_percentage <= to){
+      if (scroll_percentage >= from && scroll_percentage <= to){
         slide.show();
 
-        var p = ((scroll_percentage - from) / range_size) * 4
-        slide.scale(p);
-        console.log(index, p)
+        var p = ((scroll_percentage - from) / range_size);
+        var scale = p * 10;
+        var opacity = (scroll_percentage >= fade_from) ?
+          ((((scroll_percentage - fade_from) / fade_range_size) -1 ) * -1) : 1
+
+        if (opacity < 0.001) opacity = 0;
+        slide.scale(scale);
+        slide.css({opacity:opacity});
+      }else{
+        slide.hide();
       }
 
 
@@ -101,6 +106,7 @@ $.fn.scale = function(size){
     switch(event.which) {
       case 33: // page up
         console.log('page up');
+        Slides.scroll_percentage +=
       break;
       case 34: // page down
         console.log('page down');
