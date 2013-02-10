@@ -8,22 +8,15 @@ body.homepage
 
   .slides
     +fill-container
-    // background: orange
     > .slide
       +fill-container
-      +transition(all 1s ease)
+      // position: fixed
+      // +transition(all 1s ease)
 
-      // display: table
-      display: none
+      display: table
+      // display: none
 
-      &.back
-        +scale(0.01, 0.01)
-        +opacity(1)
-      &.middle
-        +scale(1,1)
-      &.front
-        +scale(5,5)
-        +opacity(0)
+      +scale(0.01, 0.01)
       .content
         display: table-cell
         text-align: center
