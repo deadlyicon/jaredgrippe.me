@@ -1,6 +1,12 @@
 JaredgrippeMe::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  # this is until we actually deploy something
+  # disabled so email can maybe work
+  # config.middleware.insert_after(::Rack::Lock, "::Rack::Auth::Basic", "Staging") do |u, p|
+  #   [u, p] == ['multify', ENV['MULTIFY_PASSWORD']]
+  # end
+
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -61,4 +67,11 @@ JaredgrippeMe::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  # Log the query plan for queries taking more than this (works
+  # with SQLite, MySQL, and PostgreSQL)
+  # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.default_charset = "utf-8"
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
 end
